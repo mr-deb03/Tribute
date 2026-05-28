@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Soft cinematic feminine — design system */
+  --primary: 107, 79, 160;       /* #6B4FA0 — headings */
+  --body: 90, 74, 114;           /* #5a4a72 — body text */
+  --body-deep: 74, 56, 96;       /* #4a3860 — letter text */
+  --accent: 192, 132, 252;       /* #C084FC — accent / CTA */
+  --highlight: 212, 133, 90;     /* #D4855A — italic / signature */
+  --card-bg: 255, 250, 246;      /* #fffaf6 */
+  --card-border: 232, 216, 240;  /* #e8d8f0 */
+  --tint-cool: 253, 244, 255;    /* #fdf4ff */
+  --tint-warm: 255, 244, 240;    /* #fff4f0 */
+  --letter-bg: 255, 249, 240;    /* #fff9f0 */
+  --memory-bg: 249, 240, 255;    /* #f9f0ff */
+  --memory-border: 224, 207, 245;/* #e0cff5 */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: linear-gradient(160deg, #fdf4ff 0%, #fce8f3 40%, #fff3ec 100%);
+  background-attachment: fixed;
+  color: #5a4a72;
+  cursor: none;
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@media (max-width: 768px) {
+  body { cursor: auto; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(232, 216, 240, 0.4);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #C084FC, #6B4FA0);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(192, 132, 252, 0.4);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #B070F0, #5a4090);
+}
+
+/* Glow text — softened for readability */
+.glow-text {
+  text-shadow:
+    0 0 22px rgba(192, 132, 252, 0.35),
+    0 0 44px rgba(192, 132, 252, 0.2);
+}
+
+.glow-text-strong {
+  text-shadow:
+    0 0 28px rgba(192, 132, 252, 0.5),
+    0 0 60px rgba(192, 132, 252, 0.3),
+    0 4px 18px rgba(74, 56, 96, 0.2);
+}
+
+.glow-text-light {
+  text-shadow:
+    0 0 22px rgba(255, 249, 240, 0.85),
+    0 0 50px rgba(212, 133, 90, 0.5);
+}
+
+/* Chapter / Quality card — per design system */
+.chapter-card {
+  background: #fffaf6;
+  border: 1px solid #e8d8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(180, 140, 220, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.chapter-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(180, 140, 220, 0.2);
+}
+
+/* Memory card — Gallery section */
+.memory-card {
+  background: #f9f0ff;
+  border: 1px solid #e0cff5;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(180, 140, 220, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.memory-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(192, 132, 252, 0.25);
+}
+
+/* Image overlay used inside chapter cards */
+.img-overlay {
+  background: linear-gradient(to bottom, transparent 60%, rgba(107, 79, 160, 0.15));
+}
+
+/* Glassmorphism — translucent over the soft pastel background */
+.glass {
+  background: rgba(255, 250, 246, 0.78);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid #e8d8f0;
+  box-shadow:
+    0 4px 20px rgba(180, 140, 220, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.glass-dark {
+  background: rgba(74, 56, 96, 0.55);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(192, 132, 252, 0.35);
+  box-shadow:
+    0 18px 50px rgba(74, 56, 96, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Heading gradient — primary purple family */
+.gradient-text {
+  background: linear-gradient(90deg, #6B4FA0, #C084FC, #D4855A, #6B4FA0);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient 10s ease infinite;
+  font-weight: 700;
+}
+
+.gradient-text-static {
+  background: linear-gradient(135deg, #6B4FA0 0%, #C084FC 55%, #D4855A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* "Italic highlight" — quote and signature color */
+.rosegold-text,
+.italic-highlight {
+  color: #D4855A;
+  font-weight: 600;
+}
+
+/* Handwritten paper effect — warm cream with subtle ruled lines */
+.paper {
+  background:
+    repeating-linear-gradient(
+      transparent,
+      transparent 36px,
+      rgba(107, 79, 160, 0.12) 36px,
+      rgba(107, 79, 160, 0.12) 37px
+    ),
+    #fff9f0;
+  box-shadow:
+    0 20px 60px rgba(74, 56, 96, 0.18),
+    0 0 0 1px rgba(232, 216, 240, 0.8) inset;
+}
+
+/* Rain glass effect */
+.rain-glass {
+  position: relative;
+  overflow: hidden;
+}
+.rain-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(2px 3px at 60% 70%, rgba(255,255,255,0.55), transparent),
+    radial-gradient(2px 2px at 80% 20%, rgba(255,255,255,0.75), transparent),
+    radial-gradient(3px 3px at 35% 80%, rgba(255,255,255,0.45), transparent);
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+/* Shimmer */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Selection */
+::selection {
+  background: rgba(192, 132, 252, 0.45);
+  color: #fffaf6;
+}
+
+/* Section paddings — 80px vertical, consistent between sections */
+.section-pad {
+  padding: 80px 24px;
+}
+
+@media (min-width: 768px) {
+  .section-pad { padding: 80px 48px; }
+}
+
+/* Section tint utilities — alternate between cool and warm */
+.section-tint-cool {
+  background: #fdf4ff;
+}
+.section-tint-warm {
+  background: #fff4f0;
+}
+
+/* Display weight helper — used by big headings */
+.display-bold {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+/* Underline drawing */
+.underline-draw {
+  background-image: linear-gradient(90deg, #C084FC, #6B4FA0);
+  background-repeat: no-repeat;
+  background-size: 100% 4px;
+  background-position: 0 100%;
+  padding-bottom: 4px;
+}
+
+/* Float utilities */
+.floaty { animation: float 6s ease-in-out infinite; }
+.floaty-slow { animation: float 10s ease-in-out infinite; }
+.floaty-fast { animation: float 4s ease-in-out infinite; }
+
+/* Generic hover lift */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
